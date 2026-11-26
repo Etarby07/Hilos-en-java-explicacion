@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Tokens: claro = papel cálido estilo aprenderust.dev, oscuro = negro puro estilo aprendesql.dev */
+:root {
+  --bg: #fbf8f3;
+  --surface: #f4efe6;
+  --elevated: #ffffff;
+  --line: #e7dfd2;
+  --line-strong: #d6cbb9;
+  --fg: #1c1917;
+  --muted: #57534e;
+  --faint: #8a837b;
+  --accent: #c2410c;
+  --accent-soft: #fde7d9;
+  --accent-fg: #ffffff;
+  --mark: #fde68a;
+  --ok: #15803d;
+  --ok-soft: #dcfce7;
+  --ko: #b91c1c;
+  --ko-soft: #fee2e2;
+  --info: #1d4ed8;
+  --info-soft: #dbeafe;
+  --code-bg: #1c1917;
+  --code-fg: #e7e5e4;
+  --code-line: #292524;
+  --code-hl: rgba(250, 204, 21, 0.14);
+  --code-err: rgba(239, 68, 68, 0.2);
+  --code-ok: rgba(34, 197, 94, 0.16);
+  --t1: #16a34a;
+  --t2: #2563eb;
+  --t3: #9333ea;
+  --t4: #ea580c;
+}
+
+.dark {
+  --bg: #000000;
+  --surface: #0a0a0a;
+  --elevated: #111111;
+  --line: #1a1a1a;
+  --line-strong: #262626;
+  --fg: #ededed;
+  --muted: #a1a1a1;
+  --faint: #666666;
+  --accent: #fb923c;
+  --accent-soft: #2a160a;
+  --accent-fg: #000000;
+  --mark: #713f12;
+  --ok: #4ade80;
+  --ok-soft: #052e16;
+  --ko: #f87171;
+  --ko-soft: #3b0a0a;
+  --info: #60a5fa;
+  --info-soft: #0b1a33;
+  --code-bg: #0a0a0a;
+  --code-fg: #e5e5e5;
+  --code-line: #1a1a1a;
+  --t1: #4ade80;
+  --t2: #60a5fa;
+  --t3: #c084fc;
+  --t4: #fb923c;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-elevated: var(--elevated);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-fg: var(--accent-fg);
+  --color-ok: var(--ok);
+  --color-ok-soft: var(--ok-soft);
+  --color-ko: var(--ko);
+  --color-ko-soft: var(--ko-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+  --color-t1: var(--t1);
+  --color-t2: var(--t2);
+  --color-t3: var(--t3);
+  --color-t4: var(--t4);
+  --font-sans: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Texto de lección */
+.prose-psp { font-size: 1.0625rem; line-height: 1.75; }
+.prose-psp p { margin: 0.9rem 0; }
+.prose-psp ul, .prose-psp ol { margin: 0.8rem 0; padding-left: 1.4rem; }
+.prose-psp ul { list-style: disc; }
+.prose-psp ol { list-style: decimal; }
+.prose-psp li { margin: 0.3rem 0; }
+.prose-psp strong { font-weight: 700; color: var(--fg); }
+.prose-psp a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.prose-psp table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin: 1rem 0; }
+.prose-psp th, .prose-psp td { border: 1px solid var(--line-strong); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+.prose-psp th { background: var(--surface); font-weight: 700; }
+
+.ic {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  background: var(--accent-soft);
+  color: var(--accent);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.mk {
+  background: linear-gradient(transparent 55%, var(--mark) 55%);
+  font-weight: 600;
+}
+
+/* En examen hay que ver == y ++ tal cual, sin ligaduras */
+pre, code, .font-mono { font-variant-ligatures: none; }
+
+/* Prism tokens (Java) */
+.tok-keyword { color: #f97316; }
+.tok-string, .tok-char { color: #a3e635; }
+.tok-comment { color: #78716c; font-style: italic; }
+.tok-number, .tok-boolean { color: #c4b5fd; }
+.tok-class-name { color: #fcd34d; }
+.tok-function { color: #7dd3fc; }
+.tok-annotation, .tok-punctuation.tok-annotation { color: #f472b6; }
+.tok-operator { color: #fda4af; }
+.tok-punctuation { color: #a8a29e; }
+.tok-namespace { color: #a8a29e; }
+
+.code-line-hl { background: var(--code-hl); box-shadow: inset 3px 0 0 #facc15; }
+.code-line-err { background: var(--code-err); box-shadow: inset 3px 0 0 #ef4444; }
+.code-line-ok { background: var(--code-ok); box-shadow: inset 3px 0 0 #22c55e; }
+
+/* Scrollbars discretos */
+.thin-scroll::-webkit-scrollbar { width: 8px; height: 8px; }
+.thin-scroll::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 8px; }
+
+@keyframes pop { from { transform: scale(0.85); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.pop { animation: pop 0.22s ease-out; }
+
+@media print {
+  aside, header, .no-print { display: none !important; }
+}

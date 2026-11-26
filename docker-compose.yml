@@ -1,0 +1,8 @@
+services:
+  psp-exam-prep:
+    build: .
+    image: psp-exam-prep:latest
+    container_name: psp-exam-prep
+    ports:
+      - "8080:80"   # cambia el 8080 si ese puerto está ocupado en tu máquina
+    restart: unless-stopped
